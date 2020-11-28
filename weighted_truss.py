@@ -1,5 +1,5 @@
 """
-python3 weighted_truss.py [input G file] [output json file]
+python3 weighted_truss.py [input graph file] [output json file]
 
 - Input Graph Format
     # node  neighbor  weight
