@@ -13,16 +13,10 @@ Example Command:
 python3 weighted_core_h_index.py example.txt 1 1 output.json
 """
 
-import ast
 import json
 import os
 import sys
-from copy import deepcopy
 import math
-import statistics
-import matplotlib.pyplot as plt
-plt.switch_backend('agg')
-import matplotlib.ticker as ticker
 
 
 def newCore(graph, weights, alpha, beta):
