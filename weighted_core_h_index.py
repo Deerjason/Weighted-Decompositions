@@ -19,7 +19,7 @@ import sys
 import math
 
 
-def newCore(graph, weights, alpha, beta):
+def core_decomposition(graph, weights, alpha, beta):
     h = {}
     for node in graph:
         h[node] = float('inf')
@@ -100,7 +100,7 @@ for edge, weight in weights.items():
 
 alpha = int(sys.argv[2])
 beta = int(sys.argv[3])
-cores = newCore(graph, weights, alpha, beta)
+cores = core_decomposition(graph, weights, alpha, beta)
 
 with open(sys.argv[4], 'w') as f:
     json.dump(cores, f)
