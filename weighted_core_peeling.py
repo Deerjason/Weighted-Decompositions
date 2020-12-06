@@ -14,15 +14,9 @@ python3 weighted_core_peeling.py example.txt 1 1 output.json
 
 """
 
-import ast
 import json
 import sys
-from copy import deepcopy
 import math
-import statistics
-import matplotlib.pyplot as plt
-plt.switch_backend('agg')
-import matplotlib.ticker as ticker
 import os
 
 def core_decomposition(graph, weights, alpha, beta):
