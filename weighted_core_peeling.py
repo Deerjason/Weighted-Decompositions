@@ -109,26 +109,3 @@ cores = core_decomposition(graph, weights, alpha, beta)
 outputJsonPath = sys.argv[4]
 with open(outputJsonPath, 'w') as f:
     json.dump(cores, f)
-
-k_shells = []
-for node, core in cores.items():
-    if core not in k_shells:
-        k_shells.append(core)
-print("Number of k-cores: " + str(len(k_shells)))
-
-nodes_per_core = {}
-allCores = []
-for node, core in cores.items():
-    if core not in nodes_per_core:
-        nodes_per_core[core] = 1
-    else:
-        nodes_per_core[core] += 1
-    allCores.append(core)
-
-title = "Weighted k-core peeling- alpha:" + str(alpha) + ", beta: " + str(beta)
-plt.figure(figsize=(20,10)).suptitle(title , y = 0.90)
-plt.hist(allCores, bins=50)
-plt.xlabel('core number')
-plt.ylabel('# of nodes')
-outputFilePath = os.path.join(sys.argv[4][0:-5]+ ".png")
-plt.savefig(outputFilePath)
