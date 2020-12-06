@@ -111,29 +111,3 @@ cores = newCore(graph, weights, alpha, beta)
 with open(sys.argv[4], 'w') as f:
     json.dump(cores, f)
     print("Cores written to :"+sys.argv[4])
-
-nodes_per_core = {}
-for node, core in cores.items():
-    if core not in nodes_per_core:
-        nodes_per_core[core] = 1
-    else:
-        nodes_per_core[core] += 1
-
-print("Number of unique cores: "+str(len(nodes_per_core)))
-
-allCores = []
-for node, core in cores.items():
-    if core not in nodes_per_core:
-        nodes_per_core[core] = 1
-    else:
-        nodes_per_core[core] += 1
-    allCores.append(core)
-x = []
-y = []
-plt.figure(figsize=(20,10)).suptitle("H-index" , y = 0.90)
-plt.hist(allCores, bins=50)
-plt.xlabel('core number')
-plt.ylabel('# of nodes')
-outputFilePath = os.path.join(sys.argv[4][:-5]+".png")
-plt.savefig(outputFilePath)
-print("Core distribution graph saved as: "+str(outputFilePath))
